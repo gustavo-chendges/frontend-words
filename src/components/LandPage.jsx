@@ -15,8 +15,8 @@ const LandPage = () => {
           <img src={hello} className="d-block w-100" />
           <Carousel.Caption className="top-50 translate-middle-y d-flex flex-column align-items-center">
             <div className="d-flex flex-column align-items-center mb-5">
-              <Link to="/login" className="btn btn-primary px-4 py-2 fs-5 mb-5 custom-button" role="button">Entrar</Link>
-              <Link to="/signup" className="btn btn-primary px-4 py-2 fs-5 mb-5 custom-button" role="button">Cadastre-se</Link>
+              <Link to="/login" className="my-btn btn btn-primary px-4 py-2 fs-5 mb-5 custom-button" role="button">Entrar</Link>
+              <Link to="/signup" className="my-btn btn btn-primary px-4 py-2 fs-5 mb-5 custom-button" role="button">Cadastre-se</Link>
             </div>
 
             <div>
@@ -29,8 +29,8 @@ const LandPage = () => {
           <img src={expanda} className="d-block w-100" />
           <Carousel.Caption className="top-50 translate-middle-y d-flex flex-column align-items-center">
             <div className="d-flex flex-column align-items-center mb-5">
-              <Link to="/login" className="btn btn-primary px-4 py-2 fs-5 mb-5 custom-button" role="button">Entrar</Link>
-              <Link to="/signup" className="btn btn-primary px-4 py-2 fs-5 mb-5 custom-button" role="button">Cadastre-se</Link>
+              <Link to="/login" className="my-btn btn btn-primary px-4 py-2 fs-5 mb-5 custom-button" role="button">Entrar</Link>
+              <Link to="/signup" className="my-btn btn btn-primary px-4 py-2 fs-5 mb-5 custom-button" role="button">Cadastre-se</Link>
             </div>
 
             <div>
@@ -43,8 +43,8 @@ const LandPage = () => {
           <img src={profissional} className="d-block w-100" />
           <Carousel.Caption className="top-50 translate-middle-y d-flex flex-column align-items-center">
             <div className="d-flex flex-column align-items-center mb-5">
-              <Link to="/login" className="btn btn-primary px-4 py-2 fs-5 mb-5 custom-button" role="button">Entrar</Link>
-              <Link to="/signup" className="btn btn-primary px-4 py-2 fs-5 mb-5 custom-button" role="button">Cadastre-se</Link>
+              <Link to="/login" className="my-btn btn btn-primary px-4 py-2 fs-5 mb-5 custom-button" role="button">Entrar</Link>
+              <Link to="/signup" className="my-btn btn btn-primary px-4 py-2 fs-5 mb-5 custom-button" role="button">Cadastre-se</Link>
             </div>
 
             <div>

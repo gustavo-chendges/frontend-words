@@ -12,6 +12,14 @@ export const authApiSlice = apiSlice.injectEndpoints({
             })
         }),
 
+        passwordMatch: builder.mutation({
+            query: credentials => ({
+                url: '/auth/password_match',
+                method: 'POST',
+                body: { ...credentials }
+            })
+        }),
+
         logout: builder.mutation({
             query: () => ({
                 url: '/auth/logout',
@@ -42,18 +50,47 @@ export const authApiSlice = apiSlice.injectEndpoints({
 
                     const { accessToken } = data
 
-                    dispatch(setCredentials({accessToken}))
-                } catch(err){
+                    dispatch(setCredentials({ accessToken }))
+                } catch (err) {
                     console.log(err)
                 }
             }
 
+        }),
+
+        sendRecoverPasswordEmail: builder.mutation({
+            query: credentials => ({
+                url: '/auth/forgot_password',
+                method: 'POST',
+                body: { ...credentials }
+            })
+        }),
+
+        recoverPassword: builder.mutation({
+            query: credentials => ({
+                url: '/auth/recover_password',
+                method: 'POST',
+                body: { ...credentials }
+            })
+        }),
+
+        resetPassword: builder.mutation({
+            query: credentials => ({
+                url: '/auth/reset_password',
+                method: 'POST',
+                body: { ...credentials }
+            })
         })
+
     })
 })
 
 export const {
     useLoginMutation,
     useLogoutMutation,
-    useRefreshMutation
+    useRefreshMutation,
+    usePasswordMatchMutation,
+    useSendRecoverPasswordEmailMutation,
+    useRecoverPasswordMutation,
+    useResetPasswordMutation
 } = authApiSlice

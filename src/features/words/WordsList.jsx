@@ -16,8 +16,7 @@ const WordsList = ({ handleShowWordsList }) => {
   const { category } = useParams()
   const navigate = useNavigate()
 
-  const [selectedWord, setSelectedWord] = useState("")
-  const [id, setId] = useState(0)
+  const [selectedWord, setSelectedWord] = useState({})
   const [showModalDelete, setShowModalDelete] = useState(false)
   const [searchTermEnglish, setSearchTermEnglish] = useState("")
   const [searchTermPortuguese, setSearchTermPortuguese] = useState("")
@@ -29,25 +28,23 @@ const WordsList = ({ handleShowWordsList }) => {
   const [deleteWord, { isSuccess, isError, error }] = useDeleteWordMutation()
 
   const handleShowModalDelete = (word) => {
-    setSelectedWord(word.word)
-    setId(word.id)
+    setSelectedWord(word)
     setShowModalDelete(true)
   }
 
-  const handleDelete = async (id, category) => {
-    const wordToDelete = { id, category }
+  const handleDelete = async (word) => {
 
     setShowModalDelete(false)
     setSearchTermEnglish("")
 
-    await deleteWord(wordToDelete).unwrap()
+    await deleteWord({...word}).unwrap()
   }
 
   const handleSearchEnglish = (value) => {
     setSearchTermEnglish(value)
   }
 
-  const handleSearchPortuguese= (value) => {
+  const handleSearchPortuguese = (value) => {
     setSearchTermPortuguese(value)
   }
 
@@ -57,7 +54,7 @@ const WordsList = ({ handleShowWordsList }) => {
   return (
     <Container className="min-vh-50 d-flex flex-column align-items-center">
 
-      <Button id="btnList" className="mb-4" onClick={handleShowWordsList}>
+      <Button id="btnList" className="my-btn mb-4" onClick={handleShowWordsList}>
         Voltar
       </Button>
 
@@ -66,13 +63,13 @@ const WordsList = ({ handleShowWordsList }) => {
           <h2>Deletar palavra?</h2>
         </Modal.Header>
         <Modal.Body>
-          Tem certeza que deseja deletar <b>{selectedWord} (id = {id})</b>?
+          Tem certeza que deseja deletar <b>{selectedWord.word} (id = {selectedWord._id})</b>?
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowModalDelete(false)}>
             Cancelar
           </Button>
-          <Button variant="primary" onClick={() => handleDelete(id, category)}>
+          <Button variant="primary" onClick={() => handleDelete(selectedWord)}>
             Deletar
           </Button>
         </Modal.Footer>
@@ -82,14 +79,13 @@ const WordsList = ({ handleShowWordsList }) => {
         {!searchTermPortuguese && <Form.Control className="w-100 w-md-75 border-1 border-black fs-3 mb-3" placeholder="Search term in English" value={searchTermEnglish} onChange={(e) => handleSearchEnglish(e.target.value)} />}
 
         {!searchTermEnglish && <Form.Control className="w-100 w-md-75 border-1 border-black fs-3 mt-3" placeholder="Search term in Portuguese" value={searchTermPortuguese} onChange={(e) => handleSearchPortuguese(e.target.value)} />}
-
-
       </Form>
 
       {!displayedWords.length ? (<p>Não há palavras para serem mostradas</p>) : displayedWords.map(word => (
+        //console.log(word)
         <Card
-          key={word.id}
-          id={`word_${word.id}`}
+          key={word.id? word.id : word._id}
+          id={word.id? `word_${word.id}`:`word_${word._id}`}
           className="w-100 w-md-75 d-flex flex-column mt-3 mb-3 border-1 border-black"
         >
           <Card.Body className="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3">
@@ -102,7 +98,7 @@ const WordsList = ({ handleShowWordsList }) => {
               {word.translations.length > 1 ? (
                 <ol className="mb-0">
                   {word.translations.map((trans, i) => (
-                    <li key={`translation_${word.id}_${i}`}>{trans}</li>
+                    <li key={word.id? `translation_${word.id}_${i}`: `translation_${word._id}_${i}`}>{trans}</li>
                   ))}
                 </ol>
               ) : (
@@ -115,7 +111,7 @@ const WordsList = ({ handleShowWordsList }) => {
           {word.custom && (
             <Card.Footer className="d-flex align-items-center justify-content-around">
 
-              <Link to={`/words/${category}/${word.id}`}>
+              <Link to={`/words/${category}/${word._id}`}>
                 <FontAwesomeIcon icon={faPencil} />
               </Link>
 

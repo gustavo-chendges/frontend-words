@@ -3,7 +3,7 @@ import WordsOptionCard from "./WordsOptionCard"
 
 const WordsMenu = () => {
   return (
-    <Container className="d-flex align-items-center flex-grow-1">
+    <Container className="min-vh-100 d-flex align-items-center flex-grow-1 m-3">
       <Row className="w-100 justify-content-center g-4">
         <Col xs={12} sm={6} md={3}>
           <WordsOptionCard link="/words/nouns" from="words" title="Nouns" subtitle="Nomes" />

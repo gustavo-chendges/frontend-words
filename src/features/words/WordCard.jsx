@@ -48,28 +48,28 @@ const WordCard = ({ id, handlePreviousClicked, handleNextClicked, handleShowWord
     <Container className="py-4">
       <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "calc(100vh - 64px)" }}>
         <Card className="w-100 d-flex align-items-center justify-content-around flex-row border mb-5" style={{minHeight: "500px", maxWidth: "500px"}}>
-          <Button onClick={onPreviousClicked} disabled={!canClickPrevious}>
+          <Button className="my-btn" onClick={onPreviousClicked} disabled={!canClickPrevious}>
             <FontAwesomeIcon icon={faArrowLeft} />
           </Button>
           <Card.Body className="d-flex flex-column align-items-center gap-3 text-center">
             <div>
               <p className="fs-1 my-0">{word.word}</p>
-              <p className="fs-6 my-0">{word.wordClass}</p>
+              <p className="fs-6 my-0">{word.wordClass.length === 1 ? word.wordClass : word.wordClass.join(", ")}</p>
             </div>
 
             <div className="d-flex flex-column align-items-center gap-4 fs-4">
               {showTranslation ? wordContent : (
-                <Button onClick={() => setShowTranslation(true)}>
+                <Button className="my-btn" onClick={() => setShowTranslation(true)}>
                   Mostrar tradução
                 </Button>
               )}
 
-              <Button onClick={handleShowWordsList}>
+              <Button className="my-btn" onClick={handleShowWordsList}>
                 Ver todos
               </Button>
             </div>
           </Card.Body>
-          <Button onClick={onNextClicked} disabled={!canClickNext}>
+          <Button className="my-btn" onClick={onNextClicked} disabled={!canClickNext}>
             <FontAwesomeIcon icon={faArrowRight} />
           </Button>
         </Card>

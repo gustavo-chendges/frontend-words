@@ -8,10 +8,56 @@ export const usersApiSlice = apiSlice.injectEndpoints({
                 method: 'POST',
                 body: { ...credentials }
             })
+        }),
+
+        updateUser: builder.mutation({
+            query: credentials => ({
+                url: '/users',
+                method: 'PATCH',
+                body: { ...credentials }
+            })
+        }),
+
+        deleteUser: builder.mutation({
+            query: credentials => ({
+                url: '/users',
+                method: 'DELETE',
+                body: { ...credentials }
+            })
+        }),
+
+        sendVerificationEmail: builder.mutation({
+            query: credentials => ({
+                url: '/users/verify_email',
+                method: 'POST',
+                body: { ...credentials }
+
+            })
+        }),
+
+        validateEmail: builder.mutation({
+            query: credentials => ({
+                url: '/users/validate_user',
+                method: 'POST',
+                body: { ...credentials }
+            })
+        }),
+
+        deleteWords: builder.mutation({
+            query: credentials => ({
+                url: '/users/delete_words',
+                method: 'POST',
+                body: {...credentials}
+            })
         })
     })
 })
 
 export const {
-    useCreateUserMutation
+    useCreateUserMutation,
+    useUpdateUserMutation,
+    useDeleteUserMutation,
+    useSendVerificationEmailMutation,
+    useValidateEmailMutation,
+    useDeleteWordsMutation
 } = usersApiSlice

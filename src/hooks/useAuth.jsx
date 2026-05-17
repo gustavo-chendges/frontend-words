@@ -6,6 +6,7 @@ const useAuth = () => {
     const token = useSelector(selectCurrentToken)
 
     if (token) {
+        
         return { accessToken: token }
     }
 

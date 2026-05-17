@@ -16,26 +16,31 @@ const Login = () => {
   const [password, setPassword] = useState("")
   const [persist, setPersist] = usePersist()
 
-  const [login, { isLoading }] = useLoginMutation()
+  const [login, { isLoading, isError, error }] = useLoginMutation()
 
   const handleLogin = async (e) => {
     e.preventDefault()
 
-    try{
-      const accessToken = await login({username, password}).unwrap()
+    try {
+      const { accessToken } = await login({ username, password }).unwrap()
 
-      dispatch(setCredentials({accessToken}))
+      dispatch(setCredentials({ accessToken }))
       setUsername("")
       setPassword("")
       navigate('/home')
-    } catch(err){
+    } catch (err) {
       console.log(err)
     }
   }
 
   return (
     <Container fluid>
+
       <Form className="min-vh-100 w-100 d-flex flex-column align-items-center justify-content-center" style={{ boxShadow: "0px 0px 0px transparent" }}>
+
+        {isError ? typeof(error.data.message) === 'object' ? 
+          Array.from(Object.keys(error.data.message)).map((err, i) => <p className="fs-4 err_msg" key={`err_${i}`}> {error.data.message[err]}  </p>) : <p className="fs-4 err_msg">{error.data.message}</p> : null
+        }
 
         <Form.Group className="w-75 d-flex flex-column my-3">
           <Form.Label className="fs-3">
@@ -64,14 +69,16 @@ const Login = () => {
         </Form.Group>
 
         <Form.Group className="w-75 mb-5 my-3 fs-6 mb-4 d-flex justify-content-between">
-          <Form.Check type="checkbox" label="Remember me" checked={persist} onChange={()=>setPersist(prev => !prev)}/>
-          <Link to={'/signup'}>Forgot your password?</Link>
+          <Form.Check type="checkbox" label="Remember me" checked={persist} onChange={() => setPersist(prev => !prev)} />
+          <Link to={'/forgot_password'}>Forgot your password?</Link>
 
         </Form.Group>
 
-        <Button className="w-75 fs-4 p-2" onClick={(e) => handleLogin(e)}>
-          Login
-        </Button>
+        <Form.Group className="w-100 d-flex flex-column align-items-center my-3">
+          <Button className="my-btn w-75 fs-4 p-2" onClick={(e) => handleLogin(e)}>
+            Login
+          </Button>
+        </Form.Group>
       </Form>
     </Container>
   )

@@ -1,23 +1,23 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import WordCard from './WordCard'
 import WordsList from './WordsList'
 import { useLocation } from 'react-router-dom'
 
-const WordsQueueComponent = ({ wordsQueue }) => {
+const WordsQueueComponent = ({ ids }) => {
     const location = useLocation()
 
     const redirectFromEdit = location.state?.params?.category && location.state?.params?.id
 
-    const [selectedId, setSelectedId] = useState(wordsQueue.selected)
+    const [index, setIndex] = useState(0);
     const [showWordsList, setShowWordsList] = useState(redirectFromEdit ? true : false)
 
-    const handlePreviousClicked = () => {
-        setSelectedId(wordsQueue.previous())
-    }
+    const selectedId = ids[index];
 
-    const handleNextClicked = () => {
-        setSelectedId(wordsQueue.next())
-    }
+    const handleNextClicked = () =>
+        setIndex(i => Math.min(i + 1, ids.length - 1));
+
+    const handlePreviousClicked = () =>
+        setIndex(i => Math.max(i - 1, 0))
 
     const handleShowWordsList = () => {
         setShowWordsList(prev => !prev)
@@ -26,8 +26,9 @@ const WordsQueueComponent = ({ wordsQueue }) => {
     return (
         <>
             {showWordsList ?
-                <WordsList handleShowWordsList={handleShowWordsList}/> :
-                <WordCard id={selectedId} handlePreviousClicked={handlePreviousClicked} handleNextClicked={handleNextClicked} handleShowWordsList={handleShowWordsList}/>
+                <WordsList handleShowWordsList={handleShowWordsList} /> :
+                
+                <WordCard id={selectedId} handlePreviousClicked={handlePreviousClicked} handleNextClicked={handleNextClicked} handleShowWordsList={handleShowWordsList} />
             }
         </>
     )

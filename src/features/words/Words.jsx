@@ -1,15 +1,11 @@
 import { useGetWordsQuery } from "./wordsApiSlice"
-import WordsQueueComponent from "./WordsQueue"
-import WordsQueue from "../../utils/classes/WordsQueue"
+import WordsQueue from "./WordsQueue"
 import { useSelector } from "react-redux"
 import { makeWordsSelectors } from "./wordsApiSlice"
-import { useLocation, useParams } from "react-router-dom"
-import { Container } from "react-bootstrap"
+import { useParams } from "react-router-dom"
 
 const Words = () => {
     const { category } = useParams()
-
-    const location = useLocation()
 
     const {
         isSuccess,
@@ -32,10 +28,9 @@ const Words = () => {
     } else if (isError) {
         content = <p>{error.code} - {error.message}</p>
     } else if (isSuccess) {
-        const wordsQueue = new WordsQueue(ids)
         content =
             <>
-                <WordsQueueComponent wordsQueue={wordsQueue} />
+                <WordsQueue ids={ids} />
             </>
     }
 

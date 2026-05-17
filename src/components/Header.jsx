@@ -71,7 +71,7 @@ const Header = () => {
             </Link>
           )}
           {location.pathname == "/home" && (
-            <Button onClick={logout}>
+            <Button className="my-btn" onClick={logout}>
               <FontAwesomeIcon icon={faRightFromBracket} />
             </Button>
           )}

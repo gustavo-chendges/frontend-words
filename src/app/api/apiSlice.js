@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { setCredentials } from '../../features/auth/authSlice'
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: 'https://backend-words-pc6d.vercel.app/',
+    baseUrl: 'https://backend-words.vercel.app/',
     //baseUrl: 'http://localhost:3500',
     credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
@@ -11,6 +11,8 @@ const baseQuery = fetchBaseQuery({
         if (token) {
             headers.set("authorization", `Token ${token}`)
         }
+
+        headers.set("Content-Type", "application/json")
 
         return headers
     }
