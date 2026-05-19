@@ -3,6 +3,7 @@ import WordsQueue from "./WordsQueue"
 import { useSelector } from "react-redux"
 import { makeWordsSelectors } from "./wordsApiSlice"
 import { useParams } from "react-router-dom"
+import Loading from "../../components/Loading"
 
 const Words = () => {
     const { category } = useParams()
@@ -23,7 +24,7 @@ const Words = () => {
     let content
 
     if (isLoading) {
-        content = <p>Loading...</p>
+        content = <Loading />
 
     } else if (isError) {
         content = <p>{error.code} - {error.message}</p>
