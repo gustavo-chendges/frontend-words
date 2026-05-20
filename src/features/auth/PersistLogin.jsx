@@ -5,6 +5,7 @@ import { useSelector } from "react-redux"
 import { useRefreshMutation } from "./authApiSlice"
 import { useNavigate } from "react-router-dom"
 import usePersist from "../../hooks/usePersist"
+import Loading from "../../components/Loading"
 
 const PersistLogin = () => {
     const navigate = useNavigate()
@@ -52,7 +53,7 @@ const PersistLogin = () => {
     if (!persist) {
         content = <Outlet />
     } else if (isLoading) {
-        content = <p>Loading...</p>
+        content = <Loading />
     } else if (isError) {
         content = <p>
             {error.data?.message}

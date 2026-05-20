@@ -5,6 +5,7 @@ import { useUpdateWordMutation } from './wordsApiSlice'
 import { makeWordsSelectors } from './wordsApiSlice'
 import { useSelector } from 'react-redux'
 import setwordCategory from '../../utils/functions/setWordCategory'
+import Loading from '../../components/Loading'
 
 const EditWord = () => {
   const navigate = useNavigate()
@@ -20,7 +21,7 @@ const EditWord = () => {
 
   const [updateWord, { isLoading, isSuccess, isError, error }] = useUpdateWordMutation()
 
-  if (!word) return <p>Loading...</p>
+  if (!word) return <Loading />
 
   const handleSubmit = async (data) => {
 
