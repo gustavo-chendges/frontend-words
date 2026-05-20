@@ -1,7 +1,5 @@
 import { Button, Container } from "react-bootstrap"
 import useEmailVerified from "../hooks/useEmailVerified"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons"
 import { useState } from "react"
 import useUserId from "../hooks/useUserId"
 
@@ -20,6 +18,8 @@ import { useDispatch } from 'react-redux'
 import { setPendingEmail } from '../features/auth/authSlice'
 import useEmail from "../hooks/useEmail"
 import { useSendVerificationEmailMutation } from "../features/users/usersApiSlice"
+import { Spinner } from "react-bootstrap"
+
 
 const Settings = () => {
 
@@ -46,7 +46,7 @@ const Settings = () => {
 
   const [deleteUser] = useDeleteUserMutation()
   const [deleteWords] = useDeleteWordsMutation()
-  const [passwordMatch, { isSuccess: isPasswordSuccess, isError: isPasswordError, error: passwordError }] = usePasswordMatchMutation()
+  const [passwordMatch, { isSuccess: isPasswordSuccess, isLoading: isPasswordLoading, isError: isPasswordError, error: passwordError }] = usePasswordMatchMutation()
   const [sendVerificationEmail] = useSendVerificationEmailMutation()
 
   const handleResetPasswordModalDeleteAccount = () => {
@@ -116,7 +116,7 @@ const Settings = () => {
 
   const handleVerifyEmail = async (e) => {
     dispatch(setPendingEmail({ email }))
-    await sendVerificationEmail({email}).unwrap()
+    await sendVerificationEmail({ email }).unwrap()
   }
 
   const options = {
@@ -182,7 +182,8 @@ const Settings = () => {
                 <label htmlFor="modalPassword" className="fs-5">Digite sua senha atual:</label>
                 <div className="d-flex w-100">
                   <MatchPasswordInput password={updatePassword} setPassword={setUpdatePassword} {...options} />
-                  <Button className="my-btn w-20 p-2" style={{ borderTopLeftRadius: "0px", borderBottomLeftRadius: "0px" }} onClick={() => handleUpdateFlow()}>OK</Button>
+                  <Button className="my-btn w-20 p-2" style={{ borderTopLeftRadius: "0px", borderBottomLeftRadius: "0px" }} onClick={() => handleUpdateFlow()}>{isPasswordLoading ? <Spinner animation="border"
+                  role="status" /> : <>OK</>}</Button>
                 </div>
               </>
             }
