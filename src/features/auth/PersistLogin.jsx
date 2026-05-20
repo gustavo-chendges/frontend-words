@@ -6,6 +6,7 @@ import { useRefreshMutation } from "./authApiSlice"
 import { useNavigate } from "react-router-dom"
 import usePersist from "../../hooks/usePersist"
 import Loading from "../../components/Loading"
+import Error from "../../components/Error"
 
 const PersistLogin = () => {
     const navigate = useNavigate()
@@ -43,8 +44,8 @@ const PersistLogin = () => {
     }, [])
 
     useEffect(() => {
-        if(isError){
-            navigate({pathname: '/', replace: true})
+        if (isError) {
+            navigate({ pathname: '/', replace: true })
         }
     }, [isError, navigate])
 
@@ -55,10 +56,11 @@ const PersistLogin = () => {
     } else if (isLoading) {
         content = <Loading />
     } else if (isError) {
-        content = <p>
-            {error.data?.message}
-            <Link to="/login">Please, login again</Link>
-        </p>
+        content =
+            <Error error={error}>
+                <Link to="/login">Please, login again</Link>
+            </Error>
+
     } else if (isSuccess && persistSuccess) {
         content = <Outlet />
     } else if (token && isUninitialized) {
