@@ -59,7 +59,7 @@ const ForgotPassword = () => {
 
         <Form.Group className="w-100 d-flex flex-column align-items-center my-5">
           <Button className="my-btn w-75 fs-4 p-2" onClick={(e) => handleSendRecoverEmail(e)}>
-            {isLoading? <p>Enviando...</p>: <p>Enviar código de recuperação</p>}
+            {isLoading? <>Enviando...</>: <>Enviar código de recuperação</>}
           </Button>
         </Form.Group>
       </Form>

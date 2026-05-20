@@ -38,7 +38,7 @@ const Login = () => {
 
       <Form className="min-vh-100 w-100 d-flex flex-column align-items-center justify-content-center" style={{ boxShadow: "0px 0px 0px transparent" }}>
 
-        {isError ? typeof(error.data.message) === 'object' ? 
+        {isError ? typeof (error.data.message) === 'object' ?
           Array.from(Object.keys(error.data.message)).map((err, i) => <p className="fs-4 err_msg" key={`err_${i}`}> {error.data.message[err]}  </p>) : <p className="fs-4 err_msg">{error.data.message}</p> : null
         }
 
@@ -76,7 +76,7 @@ const Login = () => {
 
         <Form.Group className="w-100 d-flex flex-column align-items-center my-3">
           <Button className="my-btn w-75 fs-4 p-2" onClick={(e) => handleLogin(e)}>
-            Login
+            {isLoading ? <>Loading...</> : <>Login</>}
           </Button>
         </Form.Group>
       </Form>
