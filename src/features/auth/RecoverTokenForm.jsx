@@ -64,10 +64,10 @@ const RecoverTokenForm = () => {
 
       <Form.Group className="w-100 d-flex flex-column align-items-center my-5">
         <Button className="my-btn w-75 fs-4 p-2 my-3" onClick={(e) => handleSendRecoverEmail(e)}>
-          {isRecoverEmailLoading ? <p>Enviando...</p> : <p>Reenviar email</p>}
+          {isRecoverEmailLoading ? <>Enviando...</> : <>Reenviar email</>}
         </Button>
         <Button className="my-btn w-75 fs-4 p-2" onClick={(e) => handleRecoverPassword(e)}>
-          {isRecoverPasswordLoading ? <p>Verificando...</p> : <p>Verificar código</p>}
+          {isRecoverPasswordLoading ? <>Verificando...</> : <>Verificar código</>}
         </Button>
       </Form.Group>
     </Form>

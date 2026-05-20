@@ -74,7 +74,7 @@ const ResetPasswordForm = () => {
 
         <Form.Group className="w-75 d-flex flex-column my-3">
           <Button className="my-btn w-100 fs-4 d-flex flex-column align-items-center" onClick={handleResetPassword} disabled={!canSave}>
-            {isLoading ? <p className="m-0">Alterando...</p> : <p className="m-0">Alterar Senha</p>}
+            {isLoading ? <>Alterando..</> : <>Alterar Senha</>}
           </Button>
         </Form.Group>
       </Form>
