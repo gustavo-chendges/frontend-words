@@ -4,9 +4,7 @@ import MatchPasswordInput from "../../features/auth/MatchPasswordInput"
 const ConfirmPasswordModal = ({ title, showModal, modalPassword, setModalPassword, handleResetPasswordModal, handleFlow, isPasswordError, passwordError }) => {
   return (
     <Modal show={showModal}>
-
-
-
+      
       <Modal.Header>
         <h2>{title}</h2>
       </Modal.Header>

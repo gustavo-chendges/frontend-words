@@ -80,10 +80,10 @@ const VerifyEmailForm = () => {
 
       <Form.Group className="w-100 d-flex flex-column align-items-center my-5">
         <Button className="my-btn w-75 fs-4 p-2 my-3" onClick={(e) => handleSendVerifyEmail(e)}>
-          {isVerificationEmailLoading ? <p>Enviando...</p> : <p>Reenviar email</p>}
+          {isVerificationEmailLoading ? <>Enviando...</> : <>Reenviar email</>}
         </Button>
-        <Button className="my-btn w-75 fs-4 p-2" onClick={(e) => handleValidateEmail(e)}>
-          {isValidateEmailLoading ? <p>Validando...</p> : <p>Verificar email</p>}
+        <Button className="my-btn w-75 fs-4 p-2" onClck={(e) => handleValidateEmail(e)}>
+          {isValidateEmailLoading ? <>Validando...</> : <>Verificar email</>}
         </Button>
         <Link className='w-75 fs-4 p-2' to={`/home`}>Agora não</Link>
       </Form.Group>
