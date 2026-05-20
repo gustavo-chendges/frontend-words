@@ -14,7 +14,7 @@ const UpdateUserForm = () => {
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
 
-    const [updateUser, isLoading] = useUpdateUserMutation()
+    const [updateUser, { isLoading }] = useUpdateUserMutation()
 
     const canSave = Boolean(username.trim() || email.trim() || password.trim() || confirmPassword.trim())
     const passwordMatch = password === confirmPassword
@@ -35,7 +35,7 @@ const UpdateUserForm = () => {
             }
 
             navigate('/home')
-        } catch (err){
+        } catch (err) {
             console.error(err)
         }
     }
@@ -60,7 +60,7 @@ const UpdateUserForm = () => {
             {!passwordMatch && confirmPassword && <p>As senhas não coincidem</p>}
 
             <Button className="my-btn w-100" disabled={!canSave} onClick={() => handleUpdateUser()}>
-               { isLoading? <>Enviando</> : <>Enviar</>}
+                {isLoading ? <>Enviando...</> : <>Enviar</>}
             </Button>
         </Form>
     )

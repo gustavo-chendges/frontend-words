@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import { useLogoutMutation } from "../features/auth/authApiSlice"
 import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import { Spinner } from "react-bootstrap"
 
 const Header = () => {
 
@@ -16,7 +17,7 @@ const Header = () => {
   let subtitle
 
   const [logout, {
-    isSuccess
+    isSuccess, isLoading
   }] = useLogoutMutation()
 
   switch (location.pathname) {
@@ -70,7 +71,7 @@ const Header = () => {
           )}
           {location.pathname == "/home" && (
             <Button className="my-btn" onClick={logout}>
-              <FontAwesomeIcon icon={faRightFromBracket} />
+              {isLoading ? <Spinner /> : <FontAwesomeIcon icon={faRightFromBracket} />}
             </Button>
           )}
         </div>
