@@ -27,7 +27,8 @@ const Words = () => {
         content = <Loading />
 
     } else if (isError) {
-        content = <p>{error.code} - {error.message}</p>
+        content = <Error error={error} />
+
     } else if (isSuccess) {
         content =
             <>

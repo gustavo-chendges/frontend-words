@@ -16,9 +16,7 @@ const Header = () => {
   let subtitle
 
   const [logout, {
-    isLoading,
-    isSuccess,
-    isError, error
+    isSuccess
   }] = useLogoutMutation()
 
   switch (location.pathname) {
