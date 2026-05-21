@@ -82,7 +82,7 @@ const VerifyEmailForm = () => {
         <Button className="my-btn w-75 fs-4 p-2 my-3" onClick={(e) => handleSendVerifyEmail(e)}>
           {isVerificationEmailLoading ? <>Enviando...</> : <>Reenviar email</>}
         </Button>
-        <Button className="my-btn w-75 fs-4 p-2" onClck={(e) => handleValidateEmail(e)}>
+        <Button className="my-btn w-75 fs-4 p-2" onClick={(e) => handleValidateEmail(e)}>
           {isValidateEmailLoading ? <>Validando...</> : <>Verificar email</>}
         </Button>
         <Link className='w-75 fs-4 p-2' to={`/home`}>Agora não</Link>
