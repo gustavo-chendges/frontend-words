@@ -1,15 +1,14 @@
 import { Button, Modal } from 'react-bootstrap'
 
 const ConfirmDeleteAccountModal = ({ showModal, setShowModal, isSuccess, handleDeleteUser, isError, error }) => {
-  
+
   console.log(error)
   console.log(isError)
 
   return (
     <Modal show={showModal && isSuccess}>
-      {isError ? typeof (error.data.message) === 'object' ?
-        Array.from(Object.keys(error.data.message)).map((err, i) => <p className="fs-4 err_msg" key={`err_${i}`}> {error.data.message[err]}  </p>) : <p className="fs-4 err_msg">{error.data.message}</p> : null
-      }
+      {isError ? <p className="fs-4 err_msg">{error.data}</p> : null}
+      
       <Modal.Header>
         <h2>Confirmar</h2>
       </Modal.Header>
