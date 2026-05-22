@@ -126,7 +126,7 @@ const Settings = () => {
   return (
     <Container className="d-flex justify-content-center align-items-start py-2">
 
-      <ConfirmDeleteAccountModal showModal={showDeleteAccountModal} setShowModal={setShowDeleteAccountModal} handleDeleteUser={handleDeleteUser} isSuccess={isPasswordSuccess} />
+      <ConfirmDeleteAccountModal showModal={showDeleteAccountModal} setShowModal={setShowDeleteAccountModal} handleDeleteUser={handleDeleteUser} isSuccess={isPasswordSuccess} isError={isPasswordError} error={passwordError}/>
 
       <ConfirmDeleteWordsModal showModal={showDeleteWordsModal} wordsCategories={wordsCategories} setWordsCategories={setWordsCategories} handleResetDeleteWords={handleResetDeleteWords} handleDeleteWords={handleDeleteWords} isSuccess={isPasswordSuccess} />
 
