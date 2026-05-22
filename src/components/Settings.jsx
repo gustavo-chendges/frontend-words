@@ -44,7 +44,7 @@ const Settings = () => {
   const [showDeleteAccountModal, setShowDeleteAccountModal] = useState(false)
   const [showDeleteWordsModal, setShowDeleteWordsModal] = useState(false)
 
-  const [deleteUser] = useDeleteUserMutation()
+  const [deleteUser, {isError: isDeletedUserError, error: deleteUserError}] = useDeleteUserMutation()
   const [deleteWords] = useDeleteWordsMutation()
   const [passwordMatch, { isSuccess: isPasswordSuccess, isLoading: isPasswordLoading, isError: isPasswordError, error: passwordError }] = usePasswordMatchMutation()
   const [sendVerificationEmail] = useSendVerificationEmailMutation()
@@ -126,7 +126,7 @@ const Settings = () => {
   return (
     <Container className="d-flex justify-content-center align-items-start py-2">
 
-      <ConfirmDeleteAccountModal showModal={showDeleteAccountModal} setShowModal={setShowDeleteAccountModal} handleDeleteUser={handleDeleteUser} isSuccess={isPasswordSuccess} isError={isPasswordError} error={passwordError}/>
+      <ConfirmDeleteAccountModal showModal={showDeleteAccountModal} setShowModal={setShowDeleteAccountModal} handleDeleteUser={handleDeleteUser} isSuccess={isPasswordSuccess} isError={isDeletedUserError} error={deleteUserError}/>
 
       <ConfirmDeleteWordsModal showModal={showDeleteWordsModal} wordsCategories={wordsCategories} setWordsCategories={setWordsCategories} handleResetDeleteWords={handleResetDeleteWords} handleDeleteWords={handleDeleteWords} isSuccess={isPasswordSuccess} />
 
