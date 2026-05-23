@@ -24,7 +24,7 @@
 - Adição de aba introduzindo o usuário ao uso do Alfabeto Fonético Internacional. 
 - Criação de aba de favoritos.
 - Criação e integração com extensão para navegador que permita ao estudante a adção de novas palavras de forma mais prática.
-- Recurso de exportação de listas de palavras personalizadas em formato .csv, compatível com plataformas famosas de flashcards, como Anki e Quizlet.
+- Recurso de exportação de listas de palavras personalizadas em formato .csv, compatível com plataformas amplamente utilizadas de flashcards, como Anki e Quizlet.
 
 ## Importante
 - Eu estou ciente de que *muitas* melhorias e refatorações são possíveis em alguns componentes (principalmente nos modais do Settings.jsx).
