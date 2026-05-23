@@ -47,7 +47,7 @@ const VerifyEmailForm = () => {
       if (result.accessToken) {
         dispatch(setCredentials({ accessToken: result.accessToken }))
       }
-      
+
       dispatch(clearPendingEmail())
       navigate('/home')
     } catch (err) {
@@ -57,6 +57,9 @@ const VerifyEmailForm = () => {
 
   const content = !emailVerified ? <Container>
     <Form className="min-vh-100 w-100 d-flex flex-column align-items-center justify-content-center" style={{ boxShadow: "0px 0px 0px transparent" }}>
+      {isError ? typeof (error.data.message) === 'object' ?
+        Array.from(Object.keys(error.data.message)).map((err, i) => <p className="fs-4 err_msg" key={`err_${i}`}> {error.data.message[err]}  </p>) : <p className="fs-4 err_msg">{error.data.message}</p> : null
+      }
 
       <Form.Group className="w-75 d-flex flex-column my-3">
         <Form.Label className="fs-3">
