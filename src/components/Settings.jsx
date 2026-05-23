@@ -27,19 +27,18 @@ const Settings = () => {
   const dispatch = useDispatch()
 
   const { email } = useEmail()
-
   const { emailVerified } = useEmailVerified()
   const { userId } = useUserId()
 
-  const [showPasswordModalDeleteAccount, setShowPasswordModalDeleteAccount] = useState(false)
+  const [showModalPasswordDeleteAccount, setShowModalPasswordDeleteAccount] = useState(false)
   const [modalPasswordDeleteAccount, setModalPasswordDeleteAccount] = useState("")
 
-  const [showPasswordModalDeleteWords, setShowPasswordModalDeleteWords] = useState(false)
+  const [showModalPasswordDeleteWords, setShowModalPasswordDeleteWords] = useState(false)
   const [modalPasswordDeleteWords, setModalPasswordDeleteWords] = useState("")
   const [wordsCategories, setWordsCategories] = useState([])
 
-  const [showUpdateForm, setShowUpdateForm] = useState(false)
-  const [updatePassword, setUpdatePassword] = useState("")
+  const [showUserUpdateForm, setShowUserUpdateForm] = useState(false)
+  const [updateUserPassword, setUpdateUserPassword] = useState("")
 
   const [showDeleteAccountModal, setShowDeleteAccountModal] = useState(false)
   const [showDeleteWordsModal, setShowDeleteWordsModal] = useState(false)
@@ -50,12 +49,12 @@ const Settings = () => {
   const [sendVerificationEmail] = useSendVerificationEmailMutation()
 
   const handleResetPasswordModalDeleteAccount = () => {
-    setShowPasswordModalDeleteAccount(false)
+    setShowModalPasswordDeleteAccount(false)
     setModalPasswordDeleteAccount("")
   }
 
   const handleResetPasswordModalDeleteWords = () => {
-    setShowPasswordModalDeleteWords(false)
+    setShowModalPasswordDeleteWords(false)
     setModalPasswordDeleteWords("")
   }
 
@@ -73,7 +72,7 @@ const Settings = () => {
     }
   }
 
-  const handleDeleteFlow = async () => {
+  const handleDeleteAccountFlow = async () => {
     handlePasswordMatch(modalPasswordDeleteAccount, () => {
       setShowDeleteAccountModal(true)
       handleResetPasswordModalDeleteAccount()
@@ -87,9 +86,9 @@ const Settings = () => {
     })
   }
 
-  const handleUpdateFlow = async () => {
-    handlePasswordMatch(updatePassword, () => {
-      setShowUpdateForm(true)
+  const handleUpdateUserFlow = async () => {
+    handlePasswordMatch(updateUserPassword, () => {
+      setShowUserUpdateForm(true)
     })
   }
 
@@ -130,9 +129,9 @@ const Settings = () => {
 
       <ConfirmDeleteWordsModal showModal={showDeleteWordsModal} wordsCategories={wordsCategories} setWordsCategories={setWordsCategories} handleResetDeleteWords={handleResetDeleteWords} handleDeleteWords={handleDeleteWords} isSuccess={isPasswordSuccess} />
 
-      <ConfirmPasswordModal title="Deletar conta?" showModal={showPasswordModalDeleteAccount} modalPassword={modalPasswordDeleteAccount} setModalPassword={setModalPasswordDeleteAccount} handleResetPasswordModal={handleResetPasswordModalDeleteAccount} handleFlow={handleDeleteFlow} isPasswordError={isPasswordError} passwordError={passwordError} />
+      <ConfirmPasswordModal title="Deletar conta?" showModal={showModalPasswordDeleteAccount} modalPassword={modalPasswordDeleteAccount} setModalPassword={setModalPasswordDeleteAccount} handleResetPasswordModal={handleResetPasswordModalDeleteAccount} handleFlow={handleDeleteAccountFlow} isPasswordError={isPasswordError} passwordError={passwordError} />
 
-      <ConfirmPasswordModal title="Deletar palavras?" showModal={showPasswordModalDeleteWords} modalPassword={modalPasswordDeleteWords} setModalPassword={setModalPasswordDeleteWords} handleResetPasswordModal={handleResetPasswordModalDeleteWords} handleFlow={handleDeleteWordsFlow} isPasswordError={isPasswordError} passwordError={passwordError} />
+      <ConfirmPasswordModal title="Deletar palavras?" showModal={showModalPasswordDeleteWords} modalPassword={modalPasswordDeleteWords} setModalPassword={setModalPasswordDeleteWords} handleResetPasswordModal={handleResetPasswordModalDeleteWords} handleFlow={handleDeleteWordsFlow} isPasswordError={isPasswordError} passwordError={passwordError} />
 
       <div className="w-100 d-flex flex-column justify-content-around min-vh-100 p-3 my-3" style={{ maxWidth: "720px", backgroundColor: "white", borderRadius: "10px" }}>
 
@@ -173,7 +172,7 @@ const Settings = () => {
           <fieldset>
             <legend className="fs-3">Editar usuário</legend>
 
-            {(!isPasswordSuccess || !showUpdateForm) &&
+            {(!isPasswordSuccess || !showUserUpdateForm) &&
               <>
                 {isPasswordError ? typeof (passwordError.data.message) === 'object' ?
                   Array.from(Object.keys(passwordError.data.message)).map((err, i) => <p className="fs-4 err_msg" key={`err_${i}`}> {passwordError.data.message[err]}  </p>) : <p className="fs-4 err_msg">{passwordError.data.message}</p> : null
@@ -181,23 +180,23 @@ const Settings = () => {
 
                 <label htmlFor="modalPassword" className="fs-5">Digite sua senha atual:</label>
                 <div className="d-flex w-100">
-                  <MatchPasswordInput password={updatePassword} setPassword={setUpdatePassword} {...options} />
-                  <Button className="my-btn w-20 p-2" style={{ borderTopLeftRadius: "0px", borderBottomLeftRadius: "0px" }} onClick={() => handleUpdateFlow()}>{isPasswordLoading ? <Spinner animation="border"
+                  <MatchPasswordInput password={updateUserPassword} setPassword={setUpdateUserPassword} {...options} />
+                  <Button className="my-btn w-20 p-2" style={{ borderTopLeftRadius: "0px", borderBottomLeftRadius: "0px" }} onClick={() => handleUpdateUserFlow()}>{isPasswordLoading ? <Spinner animation="border"
                   role="status" /> : <>OK</>}</Button>
                 </div>
               </>
             }
-            {(isPasswordSuccess && showUpdateForm) && <UpdateUserForm />}
+            {(isPasswordSuccess && showUserUpdateForm) && <UpdateUserForm />}
           </fieldset>
         </>}
 
         <fieldset>
           <legend className="fs-3">Excluir</legend>
           <div className="d-flex w-100 mb-3">
-            <Button className="p-2 fs-5 w-100" variant="danger" onClick={() => setShowPasswordModalDeleteWords(true)}>Excluir palavras personalizadas</Button>
+            <Button className="p-2 fs-5 w-100" variant="danger" onClick={() => setShowModalPasswordDeleteWords(true)}>Excluir palavras personalizadas</Button>
           </div>
           <div className="d-flex w-100 mb-3">
-            <Button className="p-2 fs-5 w-100" variant="danger" onClick={() => setShowPasswordModalDeleteAccount(true)}>Excluir conta</Button>
+            <Button className="p-2 fs-5 w-100" variant="danger" onClick={() => setShowModalPasswordDeleteAccount(true)}>Excluir conta</Button>
           </div>
         </fieldset>
 
