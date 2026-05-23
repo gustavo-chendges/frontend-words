@@ -24,7 +24,7 @@ const VerifyEmailForm = () => {
   const [verifyToken, setVerifyToken] = useState("")
 
   const [sendVerificationEmail, { isLoading: isVerificationEmailLoading }] = useSendVerificationEmailMutation()
-  const [validateEmail, { isLoading: isValidateEmailLoading }] = useValidateEmailMutation()
+  const [validateEmail, { isLoading: isValidateEmailLoading, isError: isValidateEmailError, error: validateEmailError }] = useValidateEmailMutation()
 
   const email = useSelector(state => state.auth.pendingEmail)
 
@@ -57,8 +57,8 @@ const VerifyEmailForm = () => {
 
   const content = !emailVerified ? <Container>
     <Form className="min-vh-100 w-100 d-flex flex-column align-items-center justify-content-center" style={{ boxShadow: "0px 0px 0px transparent" }}>
-      {isError ? typeof (error.data.message) === 'object' ?
-        Array.from(Object.keys(error.data.message)).map((err, i) => <p className="fs-4 err_msg" key={`err_${i}`}> {error.data.message[err]}  </p>) : <p className="fs-4 err_msg">{error.data.message}</p> : null
+      {isValidateEmailError ? typeof (validateEmailError.data.message) === 'object' ?
+        Array.from(Object.keys(validateEmailError.data.message)).map((err, i) => <p className="fs-4 err_msg" key={`err_${i}`}> {validateEmailError.data.message[err]}  </p>) : <p className="fs-4 err_msg">{validateEmailError.data.message}</p> : null
       }
 
       <Form.Group className="w-75 d-flex flex-column my-3">
