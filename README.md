@@ -2,7 +2,7 @@
 - CRUD que disponibliza as palavras básicas da língua inglesa¹ e permite ao usuário adicionar as suas próprias. Conta com sistema de cadastro e login com nome de usuário, senha e email (que pode ser validado através de código enviado). A senha também pode ser recuperada através do email cadastrado e validado. Posssivelmente, esse app é a versão embrionário do futuro projeto de conclusão de curso.
 
 ## Descrição
-- Essa é a versão inicial do frontend do LangApp, um projeto acadêmico/educacional de nível iniciante focado na fixação e prática de conceitos básicos da stack listada abaixo. Durante seu desenvolvimento, foram empregados de forma moderada padrões de tutoriais do YouTube e consulta . No entanto, nenhum grande trecho do código foi simplesmente copiado, pois isso acabaria com o propósito do projeto.
+- Essa é a versão inicial do frontend do LangApp, um projeto acadêmico/educacional de nível iniciante focado na fixação e prática de conceitos básicos da stack listada abaixo. Durante seu desenvolvimento, foram consultados documentações oficiais, tutoriais e ferramentas de inteligência artificial. As implementações, no entanto, foram adaptadas as necessidades específicas do projeto.
   
 ## Tecnologias utilizadas:
 - React (com Javascript puro) para construção das páginas e roteamento.
