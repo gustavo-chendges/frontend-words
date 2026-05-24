@@ -20,15 +20,6 @@ const SignUp = () => {
 
   const [createUser, { isSuccess, isLoading, isError, error }] = useCreateUserMutation()
 
-  useEffect(() => {
-    if (isSuccess) {
-      console.log("ENTROU NO EFFECT")
-      dispatch(setPendingEmail({email}))
-      navigate({ pathname: '/verify_email', replace: true })
-    }
-  }, [isSuccess, navigate])
-
-
   const isValidEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
 
@@ -36,7 +27,7 @@ const SignUp = () => {
   }
 
   const isValidUsername = (username) => {
-    if(username.length < 4){
+    if (username.length < 4) {
       return false
     }
 
@@ -44,7 +35,7 @@ const SignUp = () => {
   }
 
   const isValidPassword = (password) => {
-    if(password.length < 8 || !passwordMatch){
+    if (password.length < 8 || !passwordMatch) {
       return false
     }
 
@@ -56,8 +47,16 @@ const SignUp = () => {
   const handleSaveUser = async (e) => {
     e.preventDefault()
 
-    if (canSave) {
+    if (!canSave) return
+
+    try {
       await createUser({ email, username, password }).unwrap()
+
+      dispatch(setPendingEmail({ email }))
+      navigate('/verify_email', { replace: true })
+
+    } catch (err) {
+      console.log(err)
     }
   }
 
@@ -65,7 +64,7 @@ const SignUp = () => {
     <Container fluid>
 
       <Form className="min-vh-100 w-100 d-flex flex-column align-items-center justify-content-center" style={{ boxShadow: "0px 0px 0px transparent" }}>
-        {isError ? typeof(error.data.message) === 'object' ? 
+        {isError ? typeof (error.data.message) === 'object' ?
           Array.from(Object.keys(error.data.message)).map((err, i) => <p className="fs-4 err_msg" key={`err_${i}`}> {error.data.message[err]}  </p>) : <p className="fs-4 err_msg">{error.data.message}</p> : null
         }
 
@@ -81,7 +80,7 @@ const SignUp = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </Form.Group>
-        
+
         <Form.Group className="w-75 d-flex flex-column my-3">
           <Form.Label className="fs-3">
             Username
