@@ -41,6 +41,18 @@
 - Possibilidade de filtrar as palavras nas listas tanto em português como em inglês.
 - Exigência da senha para ações críticas (como alteração ou deleção da conta).
 
+## Desafios enfrentados:
+### Gerenciamento de estado:
+- Para centralizar os estados compartilhados pelos componentes, foi usado Redux Toolkit. Essa decisão permitiu posteriormente a introdução de novas funcionalidades relacionadas ao mesmo domínio de forma relativamente fácil e escalável.
+### Integração e persistência das informações de autenticação e validação de email:
+- Funcionalidades como persistência de login e edição de informações da conta foram implementadas através de hooks personalizados, utilizando
+### Formulários dinâmicos:
+- Inicialmente, o campo de traduções (que é dinâmico e permite de um a três entradas) foi implementado usando lógica própria.
+- Porém, ao assisitir um tutorial no YouTube (não relacionado diretamente ao projeto), eu descobri o React Hook Form, que facilitava imensamente o processo.
+
+### Formulários compartilhados:
+- O React Hook Form também se demonstrou útil ao ser usado para evitar o problema de duplicação de formulários (um para adição e outro para edição de palavras), abstraindo a lógica básica e permitindo apenas que as funções específicas de cada componenente fossem passadas como props.
+
 ## Melhorias planejadas:
 - Opção de categorizar e visualizar palavras por área ("viagens", "comidas", "esportes"), ao invés de classe gramatical somente.
 - Adição de aba introduzindo o usuário ao uso do Alfabeto Fonético Internacional. 
