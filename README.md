@@ -1,4 +1,5 @@
 # Frontend LangApp:
+- Link: https://gustavo-chendges.github.io/frontend-words/#/
 - O app foi concebido como um caderno online de vocabulário para estudantes de idiomas (sendo inglês o foco inicial), combinando palavras básicas¹ pré-definidas com outras adicionadas pelo próprio usuário.
 - Tecnicamente, trata-se de um sistema de CRUD que disponibliza algumas palavras da língua inglesa e permite ao usuário inserir as suas próprias. Conta com sistema de cadastro e login com nome de usuário, senha e email (que pode ser validado através de código enviado). A senha também pode ser recuperada através do email cadastrado e validado. Posssivelmente, esse app é a versão embrionário do futuro projeto de conclusão de curso.
 
