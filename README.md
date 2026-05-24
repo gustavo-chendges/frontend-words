@@ -1,16 +1,42 @@
-# React + Vite
+# Frontend LangApp:
+- O app foi concebido como um caderno online de vocabulário para estudantes de idiomas (sendo inglês o foco inicial), combinando palavras básicas¹ pré-definidas com outras adicionadas pelo próprio usuário.
+- Tecnicamente, trata-se de um sistema de CRUD que disponibliza algumas palavras da língua inglesa e permite ao usuário inserir as suas próprias. Conta com sistema de cadastro e login com nome de usuário, senha e email (que pode ser validado através de código enviado). A senha também pode ser recuperada através do email cadastrado e validado. Posssivelmente, esse app é a versão embrionário do futuro projeto de conclusão de curso.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descrição:
+- Essa é a versão inicial do frontend do LangApp, um projeto acadêmico/educacional de nível iniciante focado na fixação e prática de conceitos básicos da stack listada abaixo. Durante seu desenvolvimento, foram consultados documentações oficiais, tutoriais e ferramentas de inteligência artificial. As implementações, no entanto, foram adaptadas as necessidades específicas do projeto.
 
-Currently, two official plugins are available:
+## Preview:
+### Landpage
+### Login
+### SignUp
+### Settings
+### AddWord
+### WordCard
+  
+## Tecnologias utilizadas:
+- React (com Javascript puro) para construção das páginas e roteamento.
+- React Bootstrap para formatação de componentes.
+- Zod e React Hook Form para validação de formulários.
+- Redux Toolkit para gerenciamento de estado.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Landpage pública básica.
+- Telas de login, cadastro, recuperação de senha e validação de email.
+- Mensagens de erro e de carregamento.
+- Formulário de adição de palavras com campos dinâmicos.
+- Possibilidade de filtrar as palavras nas listas tanto em português como em inglês.
+- Exigência da senha para ações críticas (como alteração ou deleção da conta).
 
-## React Compiler
+## Melhorias planejadas:
+- Opção de categorizar e visualizar palavras por área ("viagens", "comidas", "esportes"), ao invés de classe gramatical somente.
+- Adição de aba introduzindo o usuário ao uso do Alfabeto Fonético Internacional. 
+- Criação de aba de favoritos.
+- Criação e integração com extensão para navegador que permita ao estudante a adção de novas palavras de forma mais prática.
+- Recurso de exportação de listas de palavras personalizadas em formato .csv, compatível com plataformas amplamente utilizadas de flashcards, como Anki e Quizlet.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Importante
+- Eu estou ciente de que diversas melhorias e refatorações são possíveis em alguns componentes (principalmente nos modais usados no Settings.jsx).
+- Por ser um projeto de nível iniciante, é esperado que existem problemas de desempenho e mesmo lógicos em certas partes, especialmente relacionados 
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Notas
+- ¹A lista das "palavras básicas" referidas acima vem desse post, que ficou relativamente conhecido no meio de aprendizado de idiomas algum tempo atrás: https://www.reddit.com/r/languagelearning/comments/hy2hmt/625_words_to_learn_in_your_target_language
