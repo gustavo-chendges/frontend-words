@@ -60,6 +60,10 @@
 - Criação e integração com extensão para navegador que permita ao estudante a adção de novas palavras de forma mais prática.
 - Recurso de exportação de listas de palavras personalizadas em formato .csv, compatível com plataformas amplamente utilizadas de flashcards, como Anki e Quizlet.
 
+## Instalação
+- git clone https://github.com/gustavo-chendges/frontend-words.git
+- npm install
+
 ## Importante
 - Eu estou ciente de que diversas melhorias e refatorações são possíveis em alguns componentes (principalmente nos modais usados no Settings.jsx).
 - Por ser um projeto de nível iniciante, é esperado que existem problemas de desempenho e mesmo lógicos em certas partes, especialmente relacionados 
