@@ -66,7 +66,6 @@
 
 ## Importante
 - Eu estou ciente de que diversas melhorias e refatorações são possíveis em alguns componentes (principalmente nos modais usados no Settings.jsx).
-- Por ser um projeto de nível iniciante, é esperado que existem problemas de desempenho e mesmo lógicos em certas partes, especialmente relacionados 
 
 # Notas
 - ¹A lista das "palavras básicas" referidas acima vem desse post, que ficou relativamente conhecido no meio de aprendizado de idiomas algum tempo atrás: https://www.reddit.com/r/languagelearning/comments/hy2hmt/625_words_to_learn_in_your_target_language
