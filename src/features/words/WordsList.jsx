@@ -82,7 +82,6 @@ const WordsList = ({ handleShowWordsList }) => {
       </Form>
 
       {!displayedWords.length ? (<p>Não há palavras para serem mostradas</p>) : displayedWords.map(word => (
-        //console.log(word)
         <Card
           key={word.id? word.id : word._id}
           id={word.id? `word_${word.id}`:`word_${word._id}`}

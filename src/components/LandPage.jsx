@@ -64,7 +64,7 @@ const LandPage = () => {
           <h1 className="text-center mb-4">Apps</h1>
           <Container className="min-vh-50" fluid>
             <Row className="g-4">
-              <Col sm={12} md={6} lg={4} className="d-flex">
+              <Col sm={12} md={6} className="d-flex">
                 <Card className="card-public h-100">
                   <Card.Body>
                     <Card.Title>
@@ -77,7 +77,7 @@ const LandPage = () => {
                 </Card>
 
               </Col>
-              <Col sm={12} md={6} lg={4} className="d-flex">
+              <Col sm={12} md={6} className="d-flex">
                 <Card className="card-public h-100">
                   <Card.Body>
                     <Card.Title>
@@ -89,43 +89,6 @@ const LandPage = () => {
                   </Card.Body>
                 </Card>
 
-              </Col>
-              <Col sm={12} md={6} lg={4} className="d-flex">
-                <Card className="card-public h-100">
-                  <Card.Body>
-                    <Card.Title>
-                      Quizzes
-                    </Card.Title>
-                    <Card.Text>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quod, mollitia accusantium totam illo dignissimos sunt? Excepturi nihil sapiente cumque accusamus consequuntur repellat ipsam debitis sit animi. Vero, dolor pariatur?
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-
-              </Col>
-              <Col sm={12} md={6} lg={4} className="d-flex">
-                <Card className="card-public h-100">
-                  <Card.Body>
-                    <Card.Title>
-                      Alfabeto Fonético Internacional
-                    </Card.Title>
-                    <Card.Text>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, illum facilis? Atque assumenda cum beatae. Dicta laborum officiis quaerat optio impedit, temporibus quasi, possimus recusandae porro eum, quas sunt dignissimos.
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              </Col>
-              <Col sm={12} md={6} lg={4} className="d-flex">
-                <Card className="card-public h-100">
-                  <Card.Body>
-                    <Card.Title>
-                      Explicações gramaticais
-                    </Card.Title>
-                    <Card.Text>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, illum facilis? Atque assumenda cum beatae. Dicta laborum officiis quaerat optio impedit, temporibus quasi, possimus recusandae porro eum, quas sunt dignissimos.
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
               </Col>
             </Row>
           </Container>

@@ -2,9 +2,6 @@ import { Button, Modal } from 'react-bootstrap'
 
 const ConfirmDeleteAccountModal = ({ showModal, setShowModal, isSuccess, handleDeleteUser, isError, error }) => {
 
-  console.log(error)
-  console.log(isError)
-
   return (
     <Modal show={showModal && isSuccess}>
       <Modal.Header>

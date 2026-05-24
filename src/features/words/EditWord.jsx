@@ -26,10 +26,8 @@ const EditWord = () => {
   const handleSubmit = async (data) => {
 
     const previousCategory = word.wordClass.map((w) => setwordCategory(w))
-    console.log(previousCategory)
 
     const newWordUpdated = { ...data, previousCategory, nextCategory: Array.from(new Set(data.wordClass.map((w) => setwordCategory(w)))) }
-    console.log(newWordUpdated)
 
     await updateWord({id, ...newWordUpdated}).unwrap()
 

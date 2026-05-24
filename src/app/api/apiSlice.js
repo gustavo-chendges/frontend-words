@@ -3,7 +3,6 @@ import { setCredentials } from '../../features/auth/authSlice'
 
 const baseQuery = fetchBaseQuery({
     baseUrl: 'https://backend-words.vercel.app/',
-    //baseUrl: 'http://localhost:3500',
     credentials: 'include',
     prepareHeaders: (headers, { getState }) => {
         const token = getState().auth.token
@@ -21,15 +20,15 @@ const baseQuery = fetchBaseQuery({
 const baseQueryWithReath = async (args, api, extraOptions) => {
     let result = await baseQuery(args, api, extraOptions)
 
-    if(result?.error?.status === 403){
+    if (result?.error?.status === 403) {
         const refreshResult = await baseQuery('/auth/refresh', api, extraOptions)
 
-        if(refreshResult?.data){
-            api.dispatch(setCredentials({...refreshResult.data}))
+        if (refreshResult?.data) {
+            api.dispatch(setCredentials({ ...refreshResult.data }))
 
             result = await baseQuery(args, api, extraOptions)
         } else {
-            if(refreshResult?.error?.status === 403){
+            if (refreshResult?.error?.status === 403) {
                 refreshResult.error.data.message = 'Your login has expired'
             }
 
