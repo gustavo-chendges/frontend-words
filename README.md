@@ -48,3 +48,4 @@
 
 # Notas
 - ¹A lista das "palavras básicas" referidas acima vem desse post, que ficou relativamente conhecido no meio de aprendizado de idiomas algum tempo atrás: https://www.reddit.com/r/languagelearning/comments/hy2hmt/625_words_to_learn_in_your_target_language
+- Confira também o backend: https://github.com/gustavo-chendges/backend-words
