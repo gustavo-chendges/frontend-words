@@ -21,16 +21,22 @@
 ### Cartão de palavra:
 ![Word Card Page](./screenshots/WordCard.png)
   
-## Tecnologias utilizadas:
-- React (com Javascript puro) para construção das páginas e roteamento.
-- React Bootstrap para formatação de componentes.
+## Arquitura e tecnologias utilizadas:
+- React (com Javascript puro) para construção das páginas
+- React Router para roteamento.
+- React Bootstrap para formatação e estilização de componentes.
 - Zod e React Hook Form para validação de formulários.
-- Redux Toolkit para gerenciamento de estado.
+- Redux Toolkit para gerenciamento de estado global.
+- RTK Query para conectar com os endpoints da API do backend.
+
+### Fluxo da aplicação
+- Usuário -> React -> RTK Query -> Endpoints -> Banco de dados.
 
 ## Features
-- Landpage pública básica.
+- Landing page pública básica.
 - Telas de login, cadastro, recuperação de senha e validação de email.
 - Mensagens de erro e de carregamento.
+- Persistência de login através de tokens e <Outlet />
 - Formulário de adição de palavras com campos dinâmicos.
 - Possibilidade de filtrar as palavras nas listas tanto em português como em inglês.
 - Exigência da senha para ações críticas (como alteração ou deleção da conta).
