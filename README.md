@@ -6,7 +6,9 @@
 - Essa é a versão inicial do frontend do LangApp, um projeto acadêmico/educacional de nível iniciante focado na fixação e prática de conceitos básicos da stack listada abaixo. Durante seu desenvolvimento, foram consultados documentações oficiais, tutoriais e ferramentas de inteligência artificial. As implementações, no entanto, foram adaptadas as necessidades específicas do projeto.
 
 ## Preview:
+
 ### Landpage
+![Landing Page](./screenshots/Landpage.png)
 ### Login
 ### SignUp
 ### Settings
