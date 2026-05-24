@@ -22,10 +22,12 @@ const SignUp = () => {
 
   useEffect(() => {
     if (isSuccess) {
+      console.log("ENTROU NO EFFECT")
       dispatch(setPendingEmail({email}))
       navigate({ pathname: '/verify_email', replace: true })
     }
   }, [isSuccess, navigate])
+
 
   const isValidEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
