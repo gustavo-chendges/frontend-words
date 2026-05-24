@@ -7,13 +7,18 @@
 
 ## Preview:
 
-### Landpage
+### Landing Page:
 ![Landing Page](./screenshots/Landpage.png)
-### Login
-### SignUp
-### Settings
-### AddWord
-### WordCard
+### Tela de Login:
+![Login](./screenshots/Login.png)
+### Tela de cadastro:
+![SignUp](./screenshots/SignUp.png)
+### Configurações:
+![Settings](./screenshots/Settings.png)
+### Formulário de adição de palavras:
+![Add Word](./screenshots/AddWord.png)
+### Cartão de palavra:
+![Word Card Page](./screenshots/WordCard.png)
   
 ## Tecnologias utilizadas:
 - React (com Javascript puro) para construção das páginas e roteamento.
