@@ -2,7 +2,7 @@
 - O app foi concebido como um caderno online de vocabulário para estudantes de idiomas (sendo inglês o foco inicial), combinando palavras básicas¹ pré-definidas com outras adicionadas pelo próprio usuário.
 - Tecnicamente, trata-se de um sistema de CRUD que disponibliza algumas palavras da língua inglesa e permite ao usuário inserir as suas próprias. Conta com sistema de cadastro e login com nome de usuário, senha e email (que pode ser validado através de código enviado). A senha também pode ser recuperada através do email cadastrado e validado. Posssivelmente, esse app é a versão embrionário do futuro projeto de conclusão de curso.
 
-## Descrição
+## Descrição e preview:
 - Essa é a versão inicial do frontend do LangApp, um projeto acadêmico/educacional de nível iniciante focado na fixação e prática de conceitos básicos da stack listada abaixo. Durante seu desenvolvimento, foram consultados documentações oficiais, tutoriais e ferramentas de inteligência artificial. As implementações, no entanto, foram adaptadas as necessidades específicas do projeto.
   
 ## Tecnologias utilizadas:
