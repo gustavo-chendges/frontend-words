@@ -68,6 +68,9 @@
 - Editar a baseUrl do arquivo apiSlice.js de acordo com o endereço do backend.
 - npm run dev
 
+# Importante:
+- A persistência de login e o refresh para emissão de novos tokens de acesso dependem de cookies HttpOnly enviados pelo backend. Em alguns navegadores ou modos de navegação, há  restrição no armazenamento de cookies no caso do backend e do frontend estarem hospedados em domínios diferentes (como é o caso aqui, no qual aquele se encontra hospedado na Vercel, enquanto este esta localizado no Github Pages). Mesmo assim, não foram identificadas falhas no cadastro, login e sistema de CRUD.
+
 # Notas
 - ¹A lista das "palavras básicas" referidas acima vem desse post, que ficou relativamente conhecido no meio de aprendizado de idiomas algum tempo atrás: https://www.reddit.com/r/languagelearning/comments/hy2hmt/625_words_to_learn_in_your_target_language
 - Confira também o backend: https://github.com/gustavo-chendges/backend-words
