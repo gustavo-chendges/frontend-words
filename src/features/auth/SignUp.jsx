@@ -6,10 +6,12 @@ import { useCreateUserMutation } from "../users/usersApiSlice"
 import { useNavigate } from "react-router-dom"
 import { setPendingEmail } from '../auth/authSlice'
 import { useDispatch } from 'react-redux'
+import usePersist from "../../hooks/usePersist"
 
 const SignUp = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const [persist, setPersist] = usePersist()
 
   const [email, setEmail] = useState("")
   const [username, setUsername] = useState("")
