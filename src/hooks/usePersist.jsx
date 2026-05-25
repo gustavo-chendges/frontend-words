@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 
 const usePersist = () => {
 
-    const [persist, setPersist] = useState(JSON.parse(localStorage.getItem("persistLangApp")) || false)
+    const [persist, setPersist] = useState(JSON.parse(localStorage.getItem("persistLangApp")) || true)
 
     useEffect(()=>{
         localStorage.setItem("persistLangApp", JSON.stringify(persist))

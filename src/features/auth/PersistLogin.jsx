@@ -44,7 +44,7 @@ const PersistLogin = () => {
 
     useEffect(() => {
         if (isError) {
-            navigate({ pathname: '/', replace: true })
+            navigate("/", {replace: true })
         }
     }, [isError, navigate])
 
