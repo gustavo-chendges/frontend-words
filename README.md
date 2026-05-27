@@ -1,14 +1,11 @@
 # Frontend LangApp:
 - Link: https://gustavo-chendges.github.io/frontend-words/#/
+- Essa é a versão inicial do frontend do LangApp, um projeto acadêmico/educacional voltado à e prática do desenvolvimento em React e seu ecossistema. Durante seu desenvolvimento, foram consultados documentações oficiais, tutoriais e ferramentas de inteligência artificial. As implementações, no entanto, foram adaptadas as necessidades específicas do projeto.
 - O app foi concebido como um caderno online de vocabulário para estudantes de idiomas (sendo inglês o foco inicial), combinando palavras básicas¹ pré-definidas com outras adicionadas pelo próprio usuário.
-- Tecnicamente, trata-se de um sistema de CRUD que disponibliza algumas palavras da língua inglesa e permite ao usuário inserir as suas próprias. Conta com sistema de cadastro e login com nome de usuário, senha e email (que pode ser validado através de código enviado). A senha também pode ser recuperada através do email cadastrado e validado.
+- Tecnicamente, trata-se de um sistema de CRUD que disponibliza algumas palavras da língua inglesa e permite ao usuário inserir as suas próprias entradas. Além disse, conta com sistema de cadastro e login com nome de usuário, senha e email (que pode ser validado através de código enviado). A senha também pode ser recuperada através do email cadastrado e validado.
 - O projeto também serve como base para futuras expansões acadêmicas.
 
-## Descrição:
-- Essa é a versão inicial do frontend do LangApp, um projeto acadêmico/educacional voltado à e prática do desenvolvimento em React e seu ecossistema. Durante seu desenvolvimento, foram consultados documentações oficiais, tutoriais e ferramentas de inteligência artificial. As implementações, no entanto, foram adaptadas as necessidades específicas do projeto.
-
 ## Preview:
-
 ### Landing Page:
 ![Landing Page](./screenshots/Landpage.png)
 ### Tela de Login:
@@ -49,13 +46,13 @@
 - Funcionalidades como persistência de login e edição de informações da conta foram implementadas através de hooks personalizados, utilizando a token de acesso vindo do backend e jwt-decode.
 ### Formulários dinâmicos:
 - Inicialmente, o campo de traduções (que é dinâmico e permite de um a três entradas) foi implementado usando lógica própria.
-- Porém, ao assisitir um tutorial no YouTube (não relacionado diretamente ao projeto), eu descobri o React Hook Form, que facilitava imensamente o processo.
+- Porém, ao consultar um tutorial no YouTube (não relacionado diretamente ao projeto), eu descobri a ferramenta React Hook Form, que facilitava imensamente o processo.
 
 ### Formulários compartilhados:
 - O React Hook Form também se demonstrou útil ao ser usado para evitar o problema de duplicação de formulários (um para adição e outro para edição de palavras), abstraindo a lógica básica e permitindo apenas que as funções específicas de cada componenente fossem passadas como props.
 
 ## Melhorias planejadas:
-- Opção de categorizar e visualizar palavras por área ("viagens", "comidas", "esportes"), ao invés de classe gramatical somente.
+- Opção de categorizar e visualizar palavras por área lexical ("viagens", "comidas", "esportes"), ao invés de classe gramatical somente.
 - Adição de aba introduzindo o usuário ao uso do Alfabeto Fonético Internacional. 
 - Criação de aba de favoritos.
 - Criação e integração com extensão para navegador que permita ao estudante a adção de novas palavras de forma mais prática.
@@ -69,7 +66,7 @@
 - npm run dev
 
 # Importante:
-- A persistência de login e o refresh para emissão de novos tokens de acesso dependem de cookies HttpOnly enviados pelo backend. Em alguns navegadores ou modos de navegação, há  restrição no armazenamento de cookies no caso do backend e do frontend estarem hospedados em domínios diferentes (como é o caso aqui, no qual aquele se encontra hospedado na Vercel, enquanto este esta localizado no Github Pages). Mesmo assim, não foram identificadas falhas no cadastro, login e sistema de CRUD.
+- A persistência de login e o refresh para emissão de novos tokens de acesso dependem de cookies HttpOnly enviados pelo backend. Em alguns navegadores ou modos de navegação, há  restrição no armazenamento de cookies no caso do backend e do frontend estarem hospedados em domínios diferentes, como é o caso do projeto, no qual aquele se encontra hospedado na Vercel, enquanto este está localizado no Github Pages. Mesmo assim, não foram identificadas falhas no cadastro, login e sistema de CRUD.
 
 # Notas
 - ¹A lista das "palavras básicas" referidas acima vem desse post, que ficou relativamente conhecido no meio de aprendizado de idiomas algum tempo atrás: https://www.reddit.com/r/languagelearning/comments/hy2hmt/625_words_to_learn_in_your_target_language
